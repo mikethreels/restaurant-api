@@ -8,8 +8,8 @@ class User < ApplicationRecord
   has_many :reservations
   has_many :stores, through: :reservations
 
-  def self.getReservation(user)
-    userReservations = User.includes(:reservations, :stores)
-    userReservations.all
+  def self.save_reservation()
+    user_reservations = User.includes(:reservations, :stores)
+    user_reservations.all
   end
 end
