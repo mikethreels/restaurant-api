@@ -6,9 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Store.create!(name: 'tostitos', location: 'Krakow', email: 'restaurant@test.com')
-Store.create!(name: 'rabarbar', location: 'Amsterdam', email: 'restaurant@test.com')
-Store.create!(name: 'moomoos', location: 'Paris', email: 'restaurant@test.com')
+Store.create!(id: 1, name: 'tostitos', location: 'Krakow', email: 'restaurant@test.com')
+Store.create!(id: 2, name: 'rabarbar', location: 'Amsterdam', email: 'restaurant@test.com')
+Store.create!(id: 3, name: 'moomoos', location: 'Paris', email: 'restaurant@test.com')
 Menu.create!(items: {breakfast: [['full enlish', '15 euros'], 
                                 ['baguette', '2 euros']], lunch: [['burittos', '7 euros']], 
                                 diner:[['meatloaf', '20 euros']], 
