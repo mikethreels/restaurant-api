@@ -5,7 +5,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-
   has_many :reservations
   has_many :stores, through: :reservations
 
@@ -13,6 +12,4 @@ class User < ApplicationRecord
     userReservations = User.includes(:reservations, :stores)
     userReservations.all
   end
-
-  
 end
