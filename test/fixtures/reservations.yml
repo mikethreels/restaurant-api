@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2021-01-07 18:08:42
+  confirmed: false
+  user: one
+  restaurant: one
+
+two:
+  date: 2021-01-07 18:08:42
+  confirmed: false
+  user: two
+  restaurant: two
