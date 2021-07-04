@@ -1,13 +1,14 @@
 class V1::UsersController < ApplicationController
   def create
-    User.create!(
-      email: params['user']['email'],
-      password: params['user']['password'],
-      password_confirmation: params['user']['password_confirmation']
-    )
+    @user = User.new user_params
+    # User.create!(
+    #   email: params['user']['email'],
+    #   password: params['user']['password'],
+    #   password_confirmation: params['user']['password_confirmation']
+    # )
 
     if @user
-      sessions[:user_id] = @user.id
+      session[:user_id] = @user.id
       render json: {
         status: :created,
         user: @user

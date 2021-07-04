@@ -5,7 +5,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :reservations
+  has_many :reservations, dependent: :delete_all
   has_many :stores, through: :reservations
 
   def self.save_reservation()
