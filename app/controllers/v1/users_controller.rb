@@ -1,28 +1,16 @@
 class V1::UsersController < ApplicationController
   def create
     @user = User.new user_params
-    # User.create!(
-    #   email: params['user']['email'],
-    #   password: params['user']['password'],
-    #   password_confirmation: params['user']['password_confirmation']
-    # )
+    @user.save
 
     if @user
+      token = JsonWebToken.encode(@user.attributes)
       session[:user_id] = @user.id
-      render json: {
-        status: :created,
-        user: @user
-      }
+      render :create, locals: { user: user, token: token }, status: :created
     else
-      render json: { status: 500 }
+      process_error(@user, 'Cannot create user')
     end
-    # @user = User.new(user_params)
-    # puts @user
-    # if @user.save
-    #     render :create
-    # else
-    #     head(:unprocessable_entity)
-    # end
+
   end
 
   private
