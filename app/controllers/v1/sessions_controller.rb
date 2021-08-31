@@ -13,7 +13,7 @@ class V1::SessionsController < ApplicationController
         # reservations: userReservations.as_json(include: { stores: { only: :name} })
       }
     else
-      head(:unauthorized)
+      json_response(:unauthorized)
     end
     # user = User
     #         .find_by(email: params["email"])
