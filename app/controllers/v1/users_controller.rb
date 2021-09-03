@@ -1,9 +1,7 @@
 class V1::UsersController < ApplicationController
   def create
-    @user = User.new user_params
-    @user.save
-
-    if @user
+    @user = User.create(user_params)
+    if @user.save
       token = JsonWebToken.encode(@user.attributes)
       session[:user_id] = @user.id
       render :create, locals: { user: user, token: token }, status: :created
