@@ -13,7 +13,6 @@ class V1::UsersController < ApplicationController
     else
       process_error(@user, 'Cannot create user')
     end
-
   end
 
   private
