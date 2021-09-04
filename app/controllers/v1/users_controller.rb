@@ -1,10 +1,15 @@
 class V1::UsersController < ApplicationController
+  include ActionController::HttpAuthentication::Token
   def create
     @user = User.create(user_params)
     if @user.save
-      token = JsonWebToken.encode(@user.attributes)
+      token = AuthenticationTokenService.encode(@user)
       session[:user_id] = @user.id
-      render :create, locals: { user: user, token: token }, status: :created
+      render json: {
+        loggedIn: true,
+        username: @user.email,
+        token: token
+      }, status: :created
     else
       process_error(@user, 'Cannot create user')
     end
