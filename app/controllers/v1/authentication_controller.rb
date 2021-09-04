@@ -1,4 +1,4 @@
-class V1::uthenticationController < ApplicationController
+class V1::AuthenticationController < ApplicationController
     before_action :set_and_authenticate_user, only: [:create]
 
     def create
