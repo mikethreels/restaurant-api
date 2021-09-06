@@ -11,7 +11,7 @@ class V1::SessionsController < ApplicationController
                                                                                    location] } }, only: :date } })
       }
     else
-      render json: ('invalid Username or Password'), status: :unprocessable_entity
+      render json: 'invalid Username or Password', status: :unprocessable_entity
     end
   end
 
