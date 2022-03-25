@@ -2,8 +2,6 @@
 
 All the information is stored in a PostGres database managed using Rails Active Record and the endpoint are used by the restaurant front end to validate, get and insert information into the API.
 
-## Live Demo
-[Live Demo Link](https://young-ravine-05224.herokuapp.com/)
 
 ## Built With
 
